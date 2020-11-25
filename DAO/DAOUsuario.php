@@ -7,7 +7,8 @@ use models\Usuario;
 /**
  * Esta classe é responsável por fazer a comunicação com o banco de dados,
  * promovendo as funções de logar e incluir novo usuário
- * @author Luiz Felipe Kraus
+ * @author Paulo Roberto Córdova
+ *
  */
 class DAOUsuario{
    /**
@@ -22,7 +23,7 @@ class DAOUsuario{
       }catch (\Exception $e){
          die($e->getMessage());
       }
-      
+
 
       $usuario = new Usuario();
 
@@ -57,18 +58,18 @@ class DAOUsuario{
     * @param Usuario $usuario Objeto do tipo Usuario que deverá ser cadastrado
     * @return TRUE|Exception TRUE para inclusão bem sucedida ou Exception para inclusão mal sucedida
     */
-   public function incluirUsuario($nome, $email, $login, $senha){
-      try {
+   public function incluirUsuario($nome, $email, $celular, $login, $senha){
+       try {
          $connDB = $this->conectarBanco();
       } catch (\Exception $e) {
          die($e->getMessage());
       }
 
       $sqlInsert = $connDB->prepare("insert into usuario
-                                       (nome, email, login, senha)
+                                       (nome, email, celular, login, senha)
                                        values
-                                       (?, ?, ?, ?)");
-      $sqlInsert->bind_param("ssss", $nome, $email, $login, $senha);
+                                       (?, ?, ?, ?, ?)");
+      $sqlInsert->bind_param("sssss", $nome, $email, $celular, $login, $senha);
       $sqlInsert->execute();
       if(!$sqlInsert->error){
          $retorno =  TRUE;
@@ -81,16 +82,16 @@ class DAOUsuario{
       return $retorno;
    }
    private function conectarBanco(){
-      $ds = DIRECTORY_SEPARATOR;
-      $base_dir = dirname(__FILE__).$ds;
+     $ds = DIRECTORY_SEPARATOR;
+     $base_dir = dirname(__FILE__).$ds;
+
       require($base_dir.'bd_config.php');
 
       try{
          $conn = new \MySQLi($dbhost, $user, $password, $db);
          return $conn;
-      }catch(\mysqli_sql_exception $e){
-         
-        throw new \mysqli_sql_exception($e);
+      }catch(mysqli_sql_exception $e){
+         throw new \Exception($e);
          die;
       }
    }

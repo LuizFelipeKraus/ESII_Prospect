@@ -38,11 +38,11 @@ class Usuario{
     * @param string $login Login do Usuário
     * @param string $nome Nome do Usuário
     * @param string $email E-mail do Usuário
-    * @param string $celular Celular do Usuário
+    * @param string $celular Celular do Usuário    
     * @param boolean $logado Identifica se o Usuário está ou não logado
     * @return void
     */
-   public function addUsuario($login, $nome, $email, $celular, $logado){
+   public function addUsuario($login, $nome, $celular, $email, $logado){
      $this->login = $login;
      $this->nome = $nome;
      $this->email = $email;
