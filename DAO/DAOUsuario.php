@@ -90,7 +90,7 @@ class DAOUsuario{
       try{
          $conn = new \MySQLi($dbhost, $user, $password, $db);
          return $conn;
-      }catch(mysqli_sql_exception $e){
+      }catch(\mysqli_sql_exception $e){
          throw new \Exception($e);
          die;
       }

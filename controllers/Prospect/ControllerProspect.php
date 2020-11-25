@@ -76,6 +76,7 @@ use DAO\DAOProspect;
 
         /**  public function buscar($email){
         *    $daoProspect = new DAOProspect();
+        *   não consegui implementar essa =(
         * }
         */
 
