@@ -4,7 +4,8 @@
     $separator = DIRECTORY_SEPARATOR;
     $root = $_SERVER['DOCUMENT_ROOT'];
 
-    require_once($root.'../DAO/DAOUsuario.php' );
+    
+    require_once($root.'/esii-prospect/DAO/DAOUsuario.php');
 
     use DAO\DAOUsuario;
 

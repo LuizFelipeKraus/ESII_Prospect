@@ -1,13 +1,13 @@
 <?php
 namespace DAO;
 mysqli_report(MYSQLI_REPORT_STRICT);
-require_once('../models/Usuario.php');
+require_once('C:\xampp\htdocs\esii-prospect\models\Usuario.php');
 use models\Usuario;
 
 /**
  * Esta classe é responsável por fazer a comunicação com o banco de dados,
  * promovendo as funções de logar e incluir novo usuário
- * @author Paulo Roberto Córdova
+ * @author Luiz Felipe Kraus
  *
  */
 class DAOUsuario{

@@ -6,7 +6,7 @@ namespace DAO;
 *$root = $_SERVER['DOCUMENT_ROOT'].$separador;
 *require_once('../models/Prospect.php');
 */
-require_once('../models/Prospect.php');
+require_once('C:\xampp\htdocs\esii-prospect\models\Prospect.php');
 use models\Prospect;
 
 /**
@@ -52,15 +52,14 @@ class DAOProspect{
    }
    /**
     * Atualiza os dados de um prospect já cadastrado no banco de dados
-    * @param string $nome Novo nome para o Prospect
-    * @param string $email Novo email para o Prospect
-    * @param string $celular Novo celular para o prospect
-    * @param string $facebook Novo endereço de facebook para o Prospect
-    * @param string $whatsapp Novo número de whatsapp para o Prospect
-    * @param string $codProspect Código do Prospect que deve ser alterado
+    * @param string $nome Nome do novo prospect
+    * @param string $email Email do novo prospect
+    * @param string $celular Celular do novo prospect
+    * @param string $facebook Endereço do facebook do novo prospect
+    * @param string $whatsapp Número do whatsapp do novo prospect
     * @return TRUE|Exception
     */
-   public function atualizarProspect($nome, $email, $celular, $facebook, $whatsapp, $codProspect){
+   public function atualizarProspect($nome, $email, $celular, $facebook, $whatsapp, $codProspect) {
       try {
          $conexaoDB = $this->conectarBanco();
       } catch (\Exception $e) {
@@ -93,7 +92,7 @@ class DAOProspect{
     * @param string $codProspect Código do Prospect que deve ser excluído
     * @return TRUE|Exception
     */
-   public function excluirProspect($codProspect){
+   public function excluirProspect($codProspect) {
       try {
          $conexaoDB = $this->conectarBanco();
       } catch (\Exception $e) {
@@ -122,7 +121,7 @@ class DAOProspect{
     * @return Array[Prospect] Se informado email, retorna somente o prospect relacionado.
     * Senão, retornará todos os prospects do banco de dados
     */
-   public function buscarProspects($email=null){
+   public function buscarProspects($email=null) {
       try {
          $conexaoDB = $this->conectarBanco();
       } catch (\Exception $e) {
@@ -155,13 +154,14 @@ class DAOProspect{
             $prospects[] = $prospect;
          }
       }
+     
       return $prospects;
       $conexaoDB->close();
       $sqlBusca->close();
 
-   }
-   private function conectarBanco(){
-      $ds = DIRECTORY_SEPARATOR;
+   } 
+   private function conectarBanco() {
+      $ds = DIRECTORY_SEPARATOR; 
       $base_dir = dirname(__FILE__).$ds;
       require($base_dir.'bd_config.php');
 

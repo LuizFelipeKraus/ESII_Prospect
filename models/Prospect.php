@@ -1,62 +1,60 @@
 <?php
-
 namespace models;
 
 /**
- * Classe Model de Prospect
+ * Classe Model de Prospects
  * @author Luiz Felipe Kraus
  */
-
-class Prospect {
-     /**
-    * Login do codigo
+class Prospect{
+   /**
+    * Código do Prospect
     * @var int
     */
-    private $codigo;
-     /**
-    * Login do nome
+   public $codigo;
+   /**
+    * Nome do Prospect
     * @var string
     */
-    public $nome;
-     /**
-    * Login do facebook
+   public $nome;
+   /**
+    * Emsil do Prospect
     * @var string
     */
-    public $facebook;
-     /**
-    * Login do email
+   public $email;
+   /**
+    * Celular do Prospect
     * @var string
     */
-    public $email;
-     /**
-    * Login do celular
+   public $celular;
+   /**
+    * Endereço de facebook do Prospect
     * @var string
     */
-    public $celular;
-     /**
-    * Login do whatsapp
+   public $facebook;
+   /**
+    * Número do whatsapp do Prospect
     * @var string
     */
-    public $whatsapp;
-     /**
-    * Carrega os atributos da classe Prospect
-    * @param int $codigo codigo do Prospect
+   public $whatsapp;
+
+    /**
+    * Carrega os atributos da classe
+    * @param string $codigo Código do Prospect
     * @param string $nome Nome do Prospect
-    * @param string $email E-mail do Prospect
+    * @param string $email Email do Prospect
     * @param string $celular Celular do Prospect
-    * @param string $facebook Facebook do Prospect
-    * @param string $whatsapp Whatsapp do Prospect
-    * @return void
+    * @param string $facebook Endereço do facebook do Prospect
+    * @param string $whatsapp Número do whatsapp do Prospect
+    * @return Void
     */
-    public function addProspect($codigo, $nome, $email,
-    $celular, $facebook, $whatsapp)
-    {
-        $this->codigo = $codigo;
-        $this->nome = $nome;
-        $this->email = $email;
-        $this->celular = $celular;
-        $this->facebook = $facebook;
-        $this->whatsapp - $whatsapp;
-    }
+   public function addProspect($codigo, $nome, $email, $celular, $facebook, $whatsapp){
+      $this->codigo = $codigo;
+      $this->nome = $nome;
+      $this->email = $email;
+      $this->celular = $celular;
+      $this->facebook = $facebook;
+      $this->whatsapp = $whatsapp;
+   }
 }
+
 ?>
